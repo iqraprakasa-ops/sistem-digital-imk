@@ -1130,3 +1130,494 @@ code {
     animation-duration: 0.01ms !important;
   }
 }
+/* =========================================================
+   TAMBAHAN: bilah baca, sub-bab materi, latihan, full adder,
+   glosarium, rekap kuis, bagian tentang proyek
+   ========================================================= */
+
+/* --- Bilah baca di paling atas --- */
+.baca-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.baca-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.08s linear;
+}
+
+/* --- Isi materi yang lebih panjang --- */
+.lesson-body h4 {
+  margin: 26px 0 10px;
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.lesson-body h4:first-child {
+  margin-top: 0;
+}
+
+.lesson-body p {
+  margin: 0 0 12px;
+  line-height: 1.72;
+}
+
+.lesson-body p:last-child {
+  margin-bottom: 0;
+}
+
+.lesson-body code {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-family: var(--mono);
+  font-size: 0.86em;
+}
+
+.lesson-body pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-size: 0.84rem;
+}
+
+.lesson-body .table-wrap {
+  margin: 0 0 16px;
+}
+
+.lesson-goals {
+  margin-bottom: 20px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+}
+
+.lesson-goals h4 {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.lesson-goals ul {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.94rem;
+}
+
+/* --- Tabel materi --- */
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.mini-table caption {
+  caption-side: top;
+  padding: 0 0 8px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mini-table th,
+.mini-table td {
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.mini-table thead th {
+  background: #efe9db;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.mini-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.mini-table-tight td {
+  text-align: center;
+  font-family: var(--mono);
+}
+
+.mini-table-about td:first-child {
+  width: 32%;
+  font-weight: 600;
+}
+
+/* --- Latihan kilat per topik --- */
+.mini-quiz {
+  margin: 24px 0 18px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.mq-label {
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.mq-q {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.mq-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mq-option {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  width: 100%;
+  padding: 9px 12px;
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.mq-option:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.mq-option:disabled {
+  cursor: default;
+}
+
+.mq-option.is-correct {
+  background: #e8f8f1;
+  border-color: #1f9d74;
+}
+
+.mq-option.is-wrong {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+}
+
+.mq-key {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.mq-feedback {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: var(--amber-soft);
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.mq-feedback strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.mq-again {
+  margin-top: 10px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--accent-dark);
+  font-size: 0.86rem;
+  text-decoration: underline;
+}
+/* --- Full adder --- */
+.sim-head-2 {
+  margin-top: 58px;
+}
+
+.sim-head-2 h3 {
+  font-size: 1.55rem;
+  color: #fff;
+}
+
+.adder-output {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-left: 24px;
+  border-left: 1px solid var(--panel-line);
+}
+
+.lamp-pair {
+  display: flex;
+  gap: 24px;
+  text-align: center;
+}
+
+.lamp-sm {
+  width: 70px;
+  height: 70px;
+  font-size: 1.45rem;
+}
+
+.adder-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 0.79rem;
+  line-height: 1.5;
+  color: rgba(231, 239, 235, 0.7);
+}
+
+.adder-steps strong {
+  color: var(--signal);
+}
+
+/* --- Chip basis konverter di panel terang --- */
+#mode-chips {
+  margin-bottom: 18px;
+}
+
+.conv-input .gate-chip {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  letter-spacing: 0;
+}
+
+.conv-input .gate-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+.conv-input .gate-chip[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* --- Glosarium --- */
+.glos-card {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.glos-search {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 360px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.glos-search input {
+  margin-top: 2px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.glos-search input:focus {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent-soft);
+}
+
+.glos-count {
+  margin: 14px 0 4px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.glos-list {
+  margin: 0;
+}
+
+.glos-list dt {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.glos-list dt:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.glos-list dd {
+  margin: 2px 0 0;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+.glos-empty {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--danger);
+}
+
+/* --- Rekap jawaban kuis --- */
+.quiz-review {
+  margin-top: 22px;
+  text-align: left;
+}
+
+.quiz-review h4 {
+  margin: 0 0 10px;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.review-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.review-item.ok {
+  background: #f1fbf6;
+  border-color: #a9ddc8;
+}
+
+.review-item.no {
+  background: #fdf3f0;
+  border-color: #e8c0b4;
+}
+
+.review-mark {
+  flex: none;
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+/* --- Bagian tentang proyek --- */
+.about-note {
+  margin-top: 22px;
+  padding: 20px 22px;
+  background: var(--amber-soft);
+  border: 1px solid #ecdbb6;
+  border-radius: var(--radius-sm);
+}
+
+.about-note h3 {
+  margin-bottom: 8px;
+  font-size: 1.15rem;
+}
+
+.about-note p {
+  font-size: 0.95rem;
+  color: #5b4a28;
+}
+
+.footer-ref {
+  opacity: 0.8;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 900px) {
+  .adder-output {
+    padding-top: 22px;
+    padding-left: 0;
+    border-top: 1px solid var(--panel-line);
+    border-left: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .glos-card,
+  .mini-quiz {
+    padding: 16px;
+  }
+
+  .lamp-pair {
+    gap: 16px;
+  }
+
+  .lamp-sm {
+    width: 60px;
+    height: 60px;
+    font-size: 1.25rem;
+  }
+
+  .mini-table {
+    font-size: 0.82rem;
+  }
+
+  .mini-table th,
+  .mini-table td {
+    padding: 6px 8px;
+  }
+
+  .mini-table-about td:first-child {
+    width: auto;
+  }
+}

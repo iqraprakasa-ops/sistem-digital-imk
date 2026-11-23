@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistem Digital Interaktif — Belajar Sambil Mencoba</title>
-  <meta name="description" content="Media pembelajaran interaktif Dasar Sistem Digital: materi ringkas, simulator gerbang logika, konverter bilangan, dan kuis dengan koreksi langsung." />
+  <title>Sistem Digital Interaktif — Materi, Simulator, dan Latihan</title>
+  <meta name="description" content="Media pembelajaran Dasar Sistem Digital: materi lengkap lima topik, simulator gerbang logika dan full adder, konverter bilangan dua arah, latihan per topik, dan kuis 12 soal dengan pembahasan." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <div class="baca-bar" aria-hidden="true"><span id="baca-fill"></span></div>
 
   <!-- ============ HEADER / NAVIGASI ============ -->
   <header class="site-header">
@@ -21,6 +23,7 @@
         <a href="#simulator">Simulator</a>
         <a href="#konverter">Konverter</a>
         <a href="#kuis">Kuis</a>
+        <a href="#glosarium">Glosarium</a>
         <a href="#progres">Progres</a>
       </nav>
     </div>
@@ -35,9 +38,9 @@
           <p class="eyebrow">Interaksi Manusia &amp; Komputer · Media pembelajaran</p>
           <h1>Pahami sistem digital dengan <em>mencoba</em>, bukan menghafal.</h1>
           <p class="lead">
-            Materi ringkas, simulator gerbang logika yang bisa kamu klik, konverter
-            bilangan yang menghitung seketika, dan kuis berkoreksi otomatis.
-            Semua berjalan di browser, tanpa install.
+            Lima topik materi yang dibahas tuntas, dua simulator yang bisa kamu klik,
+            konverter bilangan dua arah, latihan di tiap topik, dan kuis 12 soal
+            dengan pembahasan. Semua berjalan di browser, tanpa install.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#materi">Mulai dari materi</a>
@@ -45,8 +48,9 @@
           </div>
           <ul class="hero-facts">
             <li><strong>5</strong> topik materi</li>
-            <li><strong>3</strong> alat interaktif</li>
-            <li><strong>7</strong> soal kuis</li>
+            <li><strong>5</strong> latihan topik</li>
+            <li><strong>12</strong> soal kuis</li>
+            <li><strong>4</strong> alat interaktif</li>
           </ul>
         </div>
 
@@ -76,39 +80,158 @@
         <div class="section-head">
           <p class="eyebrow">01 — Materi</p>
           <h2>Lima topik dasar sistem digital</h2>
-          <p class="section-sub">Buka satu per satu, lalu tandai selesai. Progresnya tersimpan otomatis di browser kamu.</p>
+          <p class="section-sub">
+            Setiap topik berisi tujuan pembelajaran, penjelasan bertahap, contoh yang
+            dihitung langkah demi langkah, dan satu latihan kilat untuk mengecek
+            pemahaman. Progresmu tersimpan otomatis di browser.
+          </p>
         </div>
 
         <div class="lesson-grid">
 
+          <!-- ---------- TOPIK 1 ---------- -->
           <article class="lesson" data-lesson="bilangan">
             <div class="lesson-head">
               <span class="lesson-num">01</span>
               <h3>Sistem bilangan</h3>
-              <p>Desimal, biner, oktal, dan heksadesimal — plus cara berpindah di antaranya.</p>
+              <p>Desimal, biner, oktal, heksadesimal — dan cara berpindah di antaranya.</p>
             </div>
             <button class="lesson-toggle" type="button" aria-expanded="false" aria-controls="materi-bilangan">
               <span class="lesson-toggle-label">Buka materi</span>
               <span class="chev" aria-hidden="true">↓</span>
             </button>
             <div class="lesson-body" id="materi-bilangan" hidden>
-              <ul class="lesson-list">
-                <li><strong>Desimal</strong> (basis 10) memakai angka 0–9, ini yang kita pakai sehari-hari.</li>
-                <li><strong>Biner</strong> (basis 2) hanya 0 dan 1. Satu digit biner disebut <em>bit</em>; 8 bit = 1 byte.</li>
-                <li><strong>Oktal</strong> (basis 8) memakai 0–7, sering muncul di potongan izin file Linux.</li>
-                <li><strong>Heksadesimal</strong> (basis 16) memakai 0–9 lalu A–F. Satu digit heks = 4 bit.</li>
-                <li>Desimal → biner: bagi 2 terus-menerus, sisa pembagian dibaca dari bawah ke atas.</li>
-              </ul>
-              <pre class="code code-inline"><code>13 ÷ 2 = 6 sisa 1   ▲
- 6 ÷ 2 = 3 sisa 0   │ dibaca
- 3 ÷ 2 = 1 sisa 1   │ dari bawah
- 1 ÷ 2 = 0 sisa 1   │
-                     
-13₁₀ = 1101₂ = 15₈ = D₁₆</code></pre>
+
+              <div class="lesson-goals">
+                <h4>Tujuan pembelajaran</h4>
+                <ul>
+                  <li>Menyebutkan basis dan digit yang dipakai tiap sistem bilangan.</li>
+                  <li>Mengonversi bilangan desimal ke biner, oktal, dan heksadesimal.</li>
+                  <li>Menjelaskan mengapa rangkaian digital memakai biner.</li>
+                </ul>
+              </div>
+
+              <h4>1.1 Mengapa komputer hanya memakai 0 dan 1?</h4>
+              <p>
+                Rangkaian digital dibangun dari transistor yang bekerja seperti saklar:
+                ada tegangan atau tidak ada tegangan. Dua keadaan itu jauh lebih mudah
+                dibedakan dengan pasti daripada sepuluh tingkat tegangan yang berdekatan
+                (kalau ada 10 tingkat, sedikit gangguan saja bisa membuat angka terbaca
+                salah). Karena itu rangkaian digital hanya mengenal dua simbol, dan
+                sistem bilangan yang dipakai adalah <strong>biner</strong> (basis 2).
+              </p>
+              <p>
+                Konsekuensinya, semua yang kamu lihat di layar — huruf, gambar, suara —
+                pada akhirnya adalah deretan bit. Satu bit adalah satu digit biner,
+                delapan bit disebut satu byte, dan satu byte bisa mewakili 256 nilai
+                berbeda (2⁸).
+              </p>
+
+              <h4>1.2 Empat sistem bilangan yang perlu kamu kenal</h4>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <caption>Tabel 1.1 — Perbandingan sistem bilangan</caption>
+                  <thead>
+                    <tr><th>Sistem</th><th>Basis</th><th>Digit yang dipakai</th><th>Contoh</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Desimal</td><td>10</td><td>0–9</td><td>13</td></tr>
+                    <tr><td>Biner</td><td>2</td><td>0, 1</td><td>1101</td></tr>
+                    <tr><td>Oktal</td><td>8</td><td>0–7</td><td>15</td></tr>
+                    <tr><td>Heksadesimal</td><td>16</td><td>0–9, A–F</td><td>D</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Perhatikan: <code>1101</code> sebagai biner bernilai 13, tetapi sebagai
+                desimal bernilai seribu seratus satu. Karena itu saat menulis, sebutkan
+                basisnya — biasanya dengan subskrip: 1101₂. Di dunia nyata penulisan
+                cepat memakai awalan: <code>0b1101</code> (biner), <code>0o15</code>
+                (oktal), <code>0xD</code> (heksadesimal).
+              </p>
+
+              <h4>1.3 Nilai tempat: inti semua konversi</h4>
+              <p>
+                Setiap posisi digit punya bobot. Pada desimal bobotnya 1, 10, 100, 1000.
+                Pada biner bobotnya pangkat dua:
+              </p>
+              <div class="table-wrap">
+                <table class="mini-table mini-table-tight">
+                  <thead>
+                    <tr><th>2⁷</th><th>2⁶</th><th>2⁵</th><th>2⁴</th><th>2³</th><th>2²</th><th>2¹</th><th>2⁰</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Jadi biner ke desimal cukup mengalikan setiap bit dengan bobotnya lalu
+                menjumlahkan. Contoh <code>1011</code>:
+                (1 × 8) + (0 × 4) + (1 × 2) + (1 × 1) = <strong>11</strong>.
+              </p>
+
+              <h4>1.4 Desimal ke biner: bagi dua berulang</h4>
+              <p>
+                Bagi bilangan dengan 2, catat sisanya, ulangi dengan hasil baginya sampai
+                hasilnya 0. Sisa terakhir yang kamu dapat dibaca <em>dari bawah ke atas</em>.
+              </p>
+              <pre class="code code-inline"><code>25 ÷ 2 = 12 sisa 1   ▲
+12 ÷ 2 =  6 sisa 0   │ dibaca
+ 6 ÷ 2 =  3 sisa 0   │ dari bawah
+ 3 ÷ 2 =  1 sisa 1   │ ke atas
+ 1 ÷ 2 =  0 sisa 1   │
+
+25₁₀ = 11001₂</code></pre>
+              <p>
+                Cara cek cepat: 16 + 8 + 1 = 25. Benar. Selalu lakukan pengecekan ini,
+                karena kesalahan paling sering justru pada urutan pembacaan sisa.
+              </p>
+
+              <h4>1.5 Biner ke oktal dan heksadesimal: kelompokkan bit</h4>
+              <p>
+                Ini trik yang membuat konversi jadi cepat. Oktal = basis 8 = 2³, jadi
+                <strong>setiap 3 bit</strong> menjadi satu digit oktal. Heksadesimal =
+                basis 16 = 2⁴, jadi <strong>setiap 4 bit</strong> menjadi satu digit heks.
+                Pengelompokan dimulai dari <em>kanan</em>.
+              </p>
+              <pre class="code code-inline"><code>Desimal 214 → biner 11010110
+
+Oktal  : 11 010 110  →  3   2   6  = 326₈
+Heks   : 1101 0110   →  D   6     = D6₁₆
+
+Cek: 13 × 16 + 6 = 214 ✓</code></pre>
+              <p>
+                Kalau jumlah bit tidak habis dibagi 3 atau 4, tambahkan nol di <em>kiri</em>
+                sampai penuh. Contoh: 1010 → oktal perlu jadi 001 010 = 12₈.
+              </p>
+
+              <h4>1.6 Digit heksadesimal di atas 9</h4>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <thead><tr><th>Desimal</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th></tr></thead>
+                  <tbody><tr><td>Heks</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr></tbody>
+                </table>
+              </div>
+              <p>
+                Karena satu digit heks pas 4 bit, heksadesimal dipakai untuk menulis isi
+                memori dan warna. Contoh warna <code>#2FD39A</code> di CSS berarti tiga
+                byte: 2F (merah), D3 (hijau), 9A (biru).
+              </p>
+
+              <p class="lesson-tip">
+                <strong>Kesalahan yang sering terjadi:</strong> membaca sisa pembagian dari
+                atas ke bawah (hasilnya terbalik), lupa menambahkan nol saat mengelompokkan
+                bit, dan menulis digit 8 atau 9 pada bilangan oktal (oktal hanya 0–7).
+              </p>
+
+              <div class="mini-quiz" data-latihan="bilangan"></div>
+
               <button class="done-btn" type="button" data-lesson="bilangan" aria-pressed="false">Tandai selesai</button>
             </div>
           </article>
 
+          <!-- ---------- TOPIK 2 ---------- -->
           <article class="lesson" data-lesson="gerbang">
             <div class="lesson-head">
               <span class="lesson-num">02</span>
@@ -120,93 +243,440 @@
               <span class="chev" aria-hidden="true">↓</span>
             </button>
             <div class="lesson-body" id="materi-gerbang" hidden>
+
+              <div class="lesson-goals">
+                <h4>Tujuan pembelajaran</h4>
+                <ul>
+                  <li>Membaca tabel kebenaran gerbang AND, OR, dan NOT.</li>
+                  <li>Menerjemahkan kalimat sehari-hari menjadi ekspresi Boolean.</li>
+                  <li>Menghitung output rangkaian dua tingkat dari nilai input.</li>
+                </ul>
+              </div>
+
+              <h4>2.1 Apa itu gerbang logika?</h4>
+              <p>
+                Gerbang logika adalah blok bangunan yang menerima satu atau lebih input
+                biner dan menghasilkan tepat satu output biner. Aturannya tetap: untuk
+                input yang sama, outputnya selalu sama. Aturan itu dituliskan lengkap
+                dalam <strong>tabel kebenaran</strong>, yang memuat semua kombinasi input
+                — untuk n input jumlah barisnya 2ⁿ. Dua input berarti 4 baris, tiga input
+                berarti 8 baris.
+              </p>
+
+              <h4>2.2 Tiga gerbang dasar</h4>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <caption>Tabel 2.1 — Tabel kebenaran gerbang dasar</caption>
+                  <thead>
+                    <tr>
+                      <th colspan="2">Input</th>
+                      <th>AND<br />Y = A · B</th>
+                      <th>OR<br />Y = A + B</th>
+                      <th>NOT<br />Y = A′</th>
+                    </tr>
+                    <tr><th>A</th><th>B</th><th></th><th></th><th></th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+                    <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+                    <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>—</td></tr>
+                    <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+                  </tbody>
+                </table>
+              </div>
               <ul class="lesson-list">
-                <li><strong>AND</strong> (Y = A · B): output 1 hanya jika <em>semua</em> input 1. Seperti dua saklar seri.</li>
-                <li><strong>OR</strong> (Y = A + B): output 1 jika <em>salah satu</em> input 1. Seperti dua saklar paralel.</li>
-                <li><strong>NOT</strong> (Y = Ā): membalik nilai, 0 jadi 1 dan 1 jadi 0.</li>
-                <li>Rangkaian digital bekerja dengan dua kondisi tegangan: 0 (rendah) dan 1 (tinggi).</li>
+                <li><strong>AND</strong> — output 1 hanya jika <em>semua</em> input 1. Analogi: dua saklar yang dipasang seri, lampu menyala hanya kalau keduanya ditutup.</li>
+                <li><strong>OR</strong> — output 1 jika <em>minimal satu</em> input 1. Analogi: dua saklar paralel, lampu menyala kalau salah satu ditutup.</li>
+                <li><strong>NOT</strong> — satu input, membalik nilainya. Disebut juga inverter. Simbolnya garis atas: A′ atau Ā.</li>
               </ul>
-              <pre class="code code-inline"><code>AND            OR             NOT
-A B │ Y        A B │ Y        A │ Y
-0 0 │ 0        0 0 │ 0        0 │ 1
-0 1 │ 0        0 1 │ 1        1 │ 0
-1 0 │ 0        1 0 │ 1
-1 1 │ 1        1 1 │ 1</code></pre>
+
+              <h4>2.3 Dari kalimat ke ekspresi</h4>
+              <p>
+                Latihan menerjemahkan ini yang paling menentukan. Perhatikan kata
+                penghubungnya: "dan / serta / semuanya" → AND; "atau / salah satu" →
+                OR; "tidak / bukan / kecuali" → NOT.
+              </p>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <thead><tr><th>Kalimat</th><th>Ekspresi</th></tr></thead>
+                  <tbody>
+                    <tr><td>Lampu menyala jika saklar utama DAN sensor gerak aktif</td><td>Y = A · B</td></tr>
+                    <tr><td>Alarm berbunyi jika tombol darurat ATAU asap terdeteksi</td><td>Y = A + B</td></tr>
+                    <tr><td>Lampu indikator mati jika saklar menyala</td><td>Y = A′</td></tr>
+                    <tr><td>Pintu terbuka jika kartu valid DAN tidak ada alarm</td><td>Y = A · B′</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4>2.4 Menghitung rangkaian dua tingkat</h4>
+              <p>
+                Rangkaian nyata hampir selalu gabungan. Cara menghitungnya: selesaikan
+                tanda kurung dulu, lalu NOT, lalu AND, lalu OR — sama seperti perkalian
+                sebelum penjumlahan di matematika.
+              </p>
+              <pre class="code code-inline"><code>Y = (A · B) + C′      dengan A = 1, B = 0, C = 1
+
+1) C′      = 0
+2) A · B   = 1 · 0 = 0
+3) 0 + 0   = 0            → Y = 0
+
+Kalau C = 0  →  C′ = 1  →  Y = 0 + 1 = 1</code></pre>
+
+              <h4>2.5 Level tegangan di dunia nyata</h4>
+              <p>
+                Logika 1 dan 0 bukan angka ajaib, melainkan rentang tegangan. Pada
+                keluarga TTL dengan catu 5 V, tegangan di bawah 0,8 V dianggap 0 dan di
+                atas 2,0 V dianggap 1; daerah di antaranya adalah daerah terlarang yang
+                harus dihindari. Keluarga CMOS modern (3,3 V) punya ambang berbeda, tetapi
+                prinsipnya sama: dua wilayah tegas, satu wilayah abu-abu.
+              </p>
+
+              <p class="lesson-tip">
+                <strong>Ingat:</strong> tabel kebenaran adalah sumber kebenaran. Kalau
+                ragu dengan sebuah rangkaian, daftar semua kombinasi inputnya dan hitung
+                satu per satu — jangan menebak.
+              </p>
+
+              <div class="mini-quiz" data-latihan="gerbang"></div>
+
               <button class="done-btn" type="button" data-lesson="gerbang" aria-pressed="false">Tandai selesai</button>
             </div>
           </article>
 
+          <!-- ---------- TOPIK 3 ---------- -->
           <article class="lesson" data-lesson="turunan">
             <div class="lesson-head">
               <span class="lesson-num">03</span>
               <h3>Gerbang turunan</h3>
-              <p>NAND, NOR, XOR, XNOR — kuncinya ada di tabel kebenaran.</p>
+              <p>NAND, NOR, XOR, XNOR — dan mengapa NAND disebut gerbang universal.</p>
             </div>
             <button class="lesson-toggle" type="button" aria-expanded="false" aria-controls="materi-turunan">
               <span class="lesson-toggle-label">Buka materi</span>
               <span class="chev" aria-hidden="true">↓</span>
             </button>
             <div class="lesson-body" id="materi-turunan" hidden>
+
+              <div class="lesson-goals">
+                <h4>Tujuan pembelajaran</h4>
+                <ul>
+                  <li>Menjelaskan hubungan NAND–AND dan NOR–OR.</li>
+                  <li>Membuktikan bahwa semua gerbang bisa dibentuk dari NAND.</li>
+                  <li>Membedakan XOR dan XNOR beserta pemakaiannya.</li>
+                </ul>
+              </div>
+
+              <h4>3.1 NAND dan NOR: gerbang dasar yang dinegasi</h4>
+              <p>
+                NAND adalah AND yang outputnya dibalik; NOR adalah OR yang dibalik.
+                Keduanya disebut <strong>gerbang universal</strong> karena dengan satu
+                jenis gerbang saja (NAND saja, atau NOR saja) semua gerbang lain bisa
+                dibuat — dan itu sangat menguntungkan saat memproduksi IC, karena satu
+                jenis gerbang bisa diproduksi massal dengan biaya murah.
+              </p>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <caption>Tabel 3.1 — NAND dan NOR</caption>
+                  <thead>
+                    <tr><th>A</th><th>B</th><th>NAND (A·B)′</th><th>NOR (A+B)′</th><th>XOR A⊕B</th><th>XNOR (A⊕B)′</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+                    <tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+                    <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+                    <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4>3.2 Membangun gerbang lain hanya dari NAND</h4>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <thead><tr><th>Gerbang yang dibuat</th><th>Caranya dengan NAND</th><th>Jumlah NAND</th></tr></thead>
+                  <tbody>
+                    <tr><td>NOT</td><td>Kedua input disatukan: NAND(A, A)</td><td>1</td></tr>
+                    <tr><td>AND</td><td>NAND lalu di-NOT-kan</td><td>2</td></tr>
+                    <tr><td>OR</td><td>NOT kedua input, lalu di-NAND-kan</td><td>3</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <pre class="code code-inline"><code>NOT dari NAND
+A ──┬── NAND ── A′
+    └──
+
+AND dari NAND
+A ──┐
+    NAND ──┬── NAND ── A·B
+B ──┘      └──
+
+OR dari NAND (De Morgan)
+A ── NOT ──┐
+           NAND ── A + B
+B ── NOT ──┘</code></pre>
+
+              <h4>3.3 XOR dan XNOR</h4>
+              <p>
+                <strong>XOR</strong> (exclusive OR) menghasilkan 1 hanya jika kedua input
+                <em>berbeda</em>. Ekspresinya Y = A ⊕ B = A′·B + A·B′. <strong>XNOR</strong>
+                kebalikannya: output 1 jika kedua input <em>sama</em>, sehingga berfungsi
+                sebagai pembanding kesamaan dua bit.
+              </p>
+              <p>Pemakaian nyata keduanya:</p>
               <ul class="lesson-list">
-                <li><strong>NAND</strong> (Y = (A · B)′): kebalikan AND. Disebut <em>gerbang universal</em> karena semua gerbang lain bisa dibentuk dari NAND saja.</li>
-                <li><strong>NOR</strong> (Y = (A + B)′): kebalikan OR, juga universal.</li>
-                <li><strong>XOR</strong> (Y = A ⊕ B): output 1 jika kedua input <em>berbeda</em>.</li>
-                <li><strong>XNOR</strong>: kebalikan XOR, output 1 jika kedua input <em>sama</em>.</li>
-                <li>XOR sering dipakai pada penjumlah biner (adder) dan deteksi parity.</li>
+                <li><strong>Penjumlah biner</strong> — bit hasil penjumlahan adalah XOR dari kedua bit.</li>
+                <li><strong>Deteksi parity</strong> — deretan XOR dipakai memeriksa apakah jumlah bit 1 ganjil atau genap, untuk mendeteksi data rusak.</li>
+                <li><strong>Pembanding</strong> — XNOR per bit, lalu di-AND-kan, memberi tahu apakah dua bilangan identik.</li>
+                <li><strong>Kriptografi sederhana</strong> — XOR dengan kunci lalu XOR lagi menghasilkan data asli.</li>
               </ul>
-              <p class="lesson-tip">Coba sendiri di <a href="#simulator">Simulator Gerbang Logika</a> di bawah.</p>
+
+              <h4>3.4 Nomor IC yang sering dipakai di laboratorium</h4>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <thead><tr><th>IC</th><th>Isi</th></tr></thead>
+                  <tbody>
+                    <tr><td>7400</td><td>4 gerbang NAND 2 input</td></tr>
+                    <tr><td>7408</td><td>4 gerbang AND 2 input</td></tr>
+                    <tr><td>7432</td><td>4 gerbang OR 2 input</td></tr>
+                    <tr><td>7486</td><td>4 gerbang XOR 2 input</td></tr>
+                    <tr><td>7404</td><td>6 inverter (NOT)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="lesson-tip">
+                Saat praktikum, catat dulu susunan kaki IC-nya. Kesalahan paling umum
+                bukan pada logikanya, melainkan pada pin yang tertukar atau VCC/GND yang
+                belum tersambung.
+              </p>
+
+              <div class="mini-quiz" data-latihan="turunan"></div>
+
               <button class="done-btn" type="button" data-lesson="turunan" aria-pressed="false">Tandai selesai</button>
             </div>
           </article>
 
+          <!-- ---------- TOPIK 4 ---------- -->
           <article class="lesson" data-lesson="boolean">
             <div class="lesson-head">
               <span class="lesson-num">04</span>
               <h3>Aljabar Boolean &amp; De Morgan</h3>
-              <p>Menyederhanakan rangkaian sebelum menggambar diagramnya.</p>
+              <p>Menyederhanakan ekspresi sebelum menggambar rangkaiannya.</p>
             </div>
             <button class="lesson-toggle" type="button" aria-expanded="false" aria-controls="materi-boolean">
               <span class="lesson-toggle-label">Buka materi</span>
               <span class="chev" aria-hidden="true">↓</span>
             </button>
             <div class="lesson-body" id="materi-boolean" hidden>
-              <ul class="lesson-list">
-                <li>Hukum dasar: A + 0 = A, A · 1 = A, A + A = A, A · A = A.</li>
-                <li>Komplemen: A + A′ = 1 dan A · A′ = 0.</li>
-                <li><strong>De Morgan:</strong> (A · B)′ = A′ + B′ dan (A + B)′ = A′ · B′.</li>
-                <li>Tujuannya: rangkaian lebih sedikit gerbang = lebih murah, cepat, dan hemat daya.</li>
-              </ul>
-              <pre class="code code-inline"><code>Y = A·B + A·B′
-  = A·(B + B′)   ← distributif
-  = A·1          ← B + B′ = 1
-  = A            ← selesai, 1 gerbang saja</code></pre>
+
+              <div class="lesson-goals">
+                <h4>Tujuan pembelajaran</h4>
+                <ul>
+                  <li>Menggunakan hukum dasar aljabar Boolean untuk menyederhanakan ekspresi.</li>
+                  <li>Menerapkan dua hukum De Morgan dengan benar.</li>
+                  <li>Menjelaskan dampak penyederhanaan terhadap jumlah gerbang.</li>
+                </ul>
+              </div>
+
+              <h4>4.1 Mengapa perlu disederhanakan?</h4>
+              <p>
+                Dua ekspresi bisa bernilai sama untuk semua kombinasi input, tetapi
+                jumlah gerbangnya berbeda. Contoh: Y = A·B + A·B′ hanya butuh satu
+                gerbang setelah disederhanakan menjadi Y = A. Lebih sedikit gerbang
+                berarti lebih murah, lebih kecil, lebih cepat, dan lebih hemat daya.
+              </p>
+
+              <h4>4.2 Hukum-hukum yang wajib diingat</h4>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <caption>Tabel 4.1 — Hukum aljabar Boolean</caption>
+                  <thead><tr><th>Nama</th><th>Bentuk OR (+)</th><th>Bentuk AND (·)</th></tr></thead>
+                  <tbody>
+                    <tr><td>Identitas</td><td>A + 0 = A</td><td>A · 1 = A</td></tr>
+                    <tr><td>Dominan</td><td>A + 1 = 1</td><td>A · 0 = 0</td></tr>
+                    <tr><td>Idempoten</td><td>A + A = A</td><td>A · A = A</td></tr>
+                    <tr><td>Komplemen</td><td>A + A′ = 1</td><td>A · A′ = 0</td></tr>
+                    <tr><td>Involusi</td><td colspan="2">(A′)′ = A</td></tr>
+                    <tr><td>Absorbsi</td><td>A + A·B = A</td><td>A · (A + B) = A</td></tr>
+                    <tr><td>Distributif</td><td>A + B·C = (A+B)(A+C)</td><td>A·(B+C) = A·B + A·C</td></tr>
+                    <tr><td>De Morgan</td><td>(A + B)′ = A′ · B′</td><td>(A · B)′ = A′ + B′</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Hukum De Morgan sering membuat bingung, padahal polanya sederhana: kalau
+                seluruh ekspresi dinegasi, <em>tanda operasinya berbalik</em> dan setiap
+                variabel ikut dinegasi. AND menjadi OR, OR menjadi AND.
+              </p>
+
+              <h4>4.3 Tiga contoh penyederhanaan langkah demi langkah</h4>
+              <pre class="code code-inline"><code>Contoh 1
+Y = A·B + A·B′
+  = A·(B + B′)      ← distributif (keluarkan A)
+  = A·1             ← komplemen: B + B′ = 1
+  = A               ← identitas
+
+Contoh 2
+Y = A + A′·B
+  = (A + A′)·(A + B)   ← distributif OR
+  = 1·(A + B)          ← komplemen
+  = A + B              ← identitas
+
+Contoh 3
+Y = (A·B)′ + A·B
+  = A′ + B′ + A·B      ← De Morgan
+  = A′ + (B′ + A·B)
+  = A′ + B′ + A        ← karena B′ + A·B = B′ + A
+  = 1                  ← A + A′ = 1</code></pre>
+              <p>
+                Contoh 3 menunjukkan hasil yang menarik: ternyata outputnya selalu 1
+                berapa pun nilai A dan B. Fakta ini lebih mudah dilihat dengan tabel
+                kebenaran, jadi biasakan mengecek hasil penyederhanaan dengan tabel kecil.
+              </p>
+
+              <h4>4.4 Mengecek hasil dengan tabel kebenaran</h4>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <caption>Tabel 4.2 — Bukti A + A′B = A + B</caption>
+                  <thead><tr><th>A</th><th>B</th><th>A′B</th><th>A + A′B</th><th>A + B</th></tr></thead>
+                  <tbody>
+                    <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+                    <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+                    <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                Kedua kolom terakhir identik untuk semua baris, jadi kedua ekspresi
+                memang setara. Inilah bukti yang paling meyakinkan saat ujian.
+              </p>
+
+              <p class="lesson-tip">
+                <strong>Tips:</strong> sederhanakan dulu secara aljabar, lalu buktikan
+                dengan tabel kebenaran. Dua cara ini saling memeriksa, jadi kesalahan
+                tidak lolos diam-diam.
+              </p>
+
+              <div class="mini-quiz" data-latihan="boolean"></div>
+
               <button class="done-btn" type="button" data-lesson="boolean" aria-pressed="false">Tandai selesai</button>
             </div>
           </article>
 
+          <!-- ---------- TOPIK 5 ---------- -->
           <article class="lesson" data-lesson="rangkaian">
             <div class="lesson-head">
               <span class="lesson-num">05</span>
               <h3>Rangkaian kombinasional</h3>
-              <p>Half adder, full adder, dan multiplexer.</p>
+              <p>Half adder, full adder, multiplexer, dan decoder.</p>
             </div>
             <button class="lesson-toggle" type="button" aria-expanded="false" aria-controls="materi-rangkaian">
               <span class="lesson-toggle-label">Buka materi</span>
               <span class="chev" aria-hidden="true">↓</span>
             </button>
             <div class="lesson-body" id="materi-rangkaian" hidden>
-              <ul class="lesson-list">
-                <li><strong>Half adder</strong> menjumlah dua bit: Sum = A ⊕ B, Carry = A · B.</li>
-                <li><strong>Full adder</strong> menambah bit ketiga (carry-in), sehingga bisa dirangkai berlapis untuk bilangan banyak bit.</li>
-                <li><strong>Multiplexer (MUX) 2:1</strong> memilih satu dari dua input: Y = A · S′ + B · S.</li>
-                <li>Rangkaian <em>kombinasional</em> outputnya hanya bergantung input saat itu. Rangkaian <em>sekuensial</em> (flip-flop) menyimpan keadaan — lanjut di pertemuan berikutnya.</li>
-              </ul>
-              <pre class="code code-inline"><code>Half adder
-S = A ⊕ B   (XOR)
-C = A · B   (AND)
 
-MUX 2:1
-Y = A·S′ + B·S</code></pre>
+              <div class="lesson-goals">
+                <h4>Tujuan pembelajaran</h4>
+                <ul>
+                  <li>Membedakan rangkaian kombinasional dan sekuensial.</li>
+                  <li>Menjelaskan cara kerja half adder dan full adder.</li>
+                  <li>Menentukan output multiplexer dan decoder untuk input tertentu.</li>
+                </ul>
+              </div>
+
+              <h4>5.1 Kombinasional vs sekuensial</h4>
+              <p>
+                Rangkaian <strong>kombinasional</strong> outputnya hanya bergantung pada
+                input saat itu — tidak punya ingatan. Rangkaian <strong>sekuensial</strong>
+                (flip-flop, register, counter) menyimpan keadaan sebelumnya, sehingga
+                outputnya juga bergantung pada riwayat. Semua rangkaian di halaman ini
+                adalah kombinasional.
+              </p>
+
+              <h4>5.2 Half adder: penjumlah dua bit</h4>
+              <p>
+                Menjumlah dua bit A dan B menghasilkan dua sinyal: Sum (hasil) dan Carry
+                (simpanan ke posisi berikutnya). Perhatikan bahwa Sum sama dengan XOR,
+                sedangkan Carry sama dengan AND.
+              </p>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <caption>Tabel 5.1 — Half adder</caption>
+                  <thead><tr><th>A</th><th>B</th><th>Carry</th><th>Sum</th><th>Arti (desimal)</th></tr></thead>
+                  <tbody>
+                    <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0 + 0 = 0</td></tr>
+                    <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0 + 1 = 1</td></tr>
+                    <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1 + 0 = 1</td></tr>
+                    <tr><td>1</td><td>1</td><td>1</td><td>0</td><td>1 + 1 = 10₂ (2)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <pre class="code code-inline"><code>Sum   = A ⊕ B     (XOR)
+Carry = A · B     (AND)</code></pre>
+
+              <h4>5.3 Full adder: menambah carry dari posisi sebelumnya</h4>
+              <p>
+                Half adder tidak cukup untuk menjumlah bilangan banyak bit, karena bit
+                kedua dan seterusnya harus ikut menambahkan carry dari bit sebelumnya.
+                Full adder menerima tiga input: A, B, dan C<sub>in</sub>.
+              </p>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <caption>Tabel 5.2 — Full adder</caption>
+                  <thead><tr><th>A</th><th>B</th><th>C<sub>in</sub></th><th>C<sub>out</sub></th><th>Sum</th><th>Arti (desimal)</th></tr></thead>
+                  <tbody>
+                    <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+                    <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+                    <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>2</td></tr>
+                    <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+                    <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>2</td></tr>
+                    <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td></tr>
+                    <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>3</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <pre class="code code-inline"><code>Sum  = A ⊕ B ⊕ Cin
+Cout = A·B + Cin·(A ⊕ B)
+
+Coba sendiri di simulator full adder di halaman ini.</code></pre>
+              <p>
+                Empat full adder yang dirangkai berderet menghasilkan penjumlah 4 bit
+                (<em>ripple carry adder</em>): C<sub>out</sub> satu tingkat menjadi
+                C<sub>in</sub> tingkat berikutnya. Kekurangannya, carry harus menjalar
+                dari bit paling kanan ke paling kiri sehingga penjumlahan panjang menjadi
+                lebih lambat.
+              </p>
+
+              <h4>5.4 Multiplexer (MUX) 2:1</h4>
+              <p>
+                MUX adalah pemilih data: dari beberapa input, satu diteruskan ke output
+                sesuai sinyal pemilih S.
+              </p>
+              <div class="table-wrap">
+                <table class="mini-table">
+                  <caption>Tabel 5.3 — MUX 2:1</caption>
+                  <thead><tr><th>S</th><th>Y</th><th>Artinya</th></tr></thead>
+                  <tbody>
+                    <tr><td>0</td><td>A</td><td>input A yang diteruskan</td></tr>
+                    <tr><td>1</td><td>B</td><td>input B yang diteruskan</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <pre class="code code-inline"><code>Y = A·S′ + B·S</code></pre>
+              <p>
+                Selain sebagai pemilih data, MUX bisa dipakai mengimplementasikan fungsi
+                Boolean apa pun: masukkan nilai fungsi ke input, pilih dengan variabel.
+                Decoder 2-ke-4 sebaliknya: dari 2 bit input, menyalakan tepat satu dari 4
+                output — dasar dari pemilihan alamat memori.
+              </p>
+
+              <p class="lesson-tip">
+                <strong>Cek cepat:</strong> kalau tabel kebenaran punya 3 input, jumlah
+                barisnya harus 8. Kalau tabelmu 7 baris, ada kombinasi yang terlewat.
+              </p>
+
+              <div class="mini-quiz" data-latihan="rangkaian"></div>
+
               <button class="done-btn" type="button" data-lesson="rangkaian" aria-pressed="false">Tandai selesai</button>
             </div>
           </article>
@@ -215,7 +685,7 @@ Y = A·S′ + B·S</code></pre>
       </div>
     </section>
 
-    <!-- ============ SIMULATOR GERBANG ============ -->
+    <!-- ============ SIMULATOR ============ -->
     <section class="section section-dark" id="simulator">
       <div class="wrap">
         <div class="section-head">
@@ -266,6 +736,60 @@ Y = A·S′ + B·S</code></pre>
             <table class="truth-table" id="truth-table"></table>
           </div>
         </div>
+
+        <div class="section-head sim-head-2">
+          <h3>Simulator full adder</h3>
+          <p class="section-sub">
+            Tiga saklar: A, B, dan carry masuk. Lihat Sum, carry keluar, serta langkah
+            perhitungannya. Coba bandingkan dengan Tabel 5.2 di materi.
+          </p>
+        </div>
+
+        <div class="sim-card adder-card">
+          <div class="sim-controls">
+            <p class="sim-label">Input</p>
+            <div class="switches}>
+              <label class="switch">
+                <input class="switch-input" type="checkbox" id="add-a" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">A</span>
+                <span class="switch-val" id="add-val-a">0</span>
+              </label>
+              <label class="switch">
+                <input class="switch-input" type="checkbox" id="add-b" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">B</span>
+                <span class="switch-val" id="add-val-b">0</span>
+              </label>
+              <label class="switch">
+                <input class="switch-input" type="checkbox" id="add-cin" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">C<sub>in</sub></span>
+                <span class="switch-val" id="add-val-cin">0</span>
+              </label>
+            </div>
+            <p class="sim-note" id="adder-note">Jumlah ketiga input: 0 + 0 + 0 = 0.</p>
+            <div class="adder-steps" id="adder-steps"></div>
+          </div>
+
+          <div class="adder-output">
+            <div class="lamp-pair">
+              <div>
+                <div class="lamp lamp-sm" id="lamp-sum" aria-hidden="true"><span id="lamp-sum-val">0</span></div>
+                <p class="lamp-caption">Sum</p>
+              </div>
+              <div>
+                <div class="lamp lamp-sm" id="lamp-cout" aria-hidden="true"><span id="lamp-cout-val">0</span></div>
+                <p class="lamp-caption">C<sub>out</sub></p>
+              </div>
+            </div>
+            <p class="sim-formula" id="adder-formula">Sum = 0 ⊕ 0 ⊕ 0 = 0</p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="truth-table" id="adder-table"></table>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -274,27 +798,41 @@ Y = A·S′ + B·S</code></pre>
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">03 — Konverter</p>
-          <h2>Konverter bilangan</h2>
-          <p class="section-sub">Ketik bilangan desimal, hasil biner, oktal, dan heksadesimalnya muncul seketika.</p>
+          <h2>Konverter bilangan dua arah</h2>
+          <p class="section-sub">
+            Pilih basis asal, ketik bilangannya, dan hasil dalam ketiga basis lain muncul
+            seketika — lengkap dengan jumlah bit yang dipakai.
+          </p>
         </div>
 
         <div class="conv-card">
           <div class="conv-input">
-            <label for="desimal">Bilangan desimal</label>
+            <p class="sim-label" id="label-basis">Basis asal</p>
+            <div class="gate-chips" id="mode-chips" role="group" aria-labelledby="label-basis">
+              <button class="gate-chip" type="button" data-mode="desimal" aria-pressed="true">Desimal</button>
+              <button class="gate-chip" type="button" data-mode="biner">Biner</button>
+              <button class="gate-chip" type="button" data-mode="oktal">Oktal</button>
+              <button class="gate-chip" type="button" data-mode="heks">Heksadesimal</button>
+            </div>
+
+            <label for="angka" id="conv-label">Bilangan desimal</label>
             <input
-              id="desimal"
-              type="number"
-              min="0"
-              max="65535"
+              id="angka"
+              type="text"
               value="13"
               inputmode="numeric"
               autocomplete="off"
+              spellcheck="false"
               aria-describedby="conv-hint"
             />
             <p class="conv-hint" id="conv-hint">Rentang 0–65535 (setara 16 bit).</p>
           </div>
 
           <div class="conv-out" id="conv-out" aria-live="polite">
+            <div class="out-row">
+              <span class="out-label">Desimal</span>
+              <code class="out-value" id="out-desimal">13</code>
+            </div>
             <div class="out-row">
               <span class="out-label">Biner</span>
               <code class="out-value" id="out-biner">1101</code>
@@ -322,12 +860,15 @@ Y = A·S′ + B·S</code></pre>
         <div class="section-head">
           <p class="eyebrow">04 — Kuis</p>
           <h2>Uji pemahamanmu</h2>
-          <p class="section-sub">Tujuh soal, koreksi langsung, plus penjelasan singkat di tiap jawaban.</p>
+          <p class="section-sub">
+            Dua belas soal dari kelima topik, koreksi langsung, pembahasan tiap jawaban,
+            dan rekap benar-salah di akhir.
+          </p>
         </div>
 
         <div class="quiz-card">
           <div class="quiz-top">
-            <span class="quiz-step" id="quiz-step">Soal 1 dari 7</span>
+            <span class="quiz-step" id="quiz-step">Soal 1 dari 12</span>
             <div class="bar"><span class="bar-fill" id="quiz-bar"></span></div>
           </div>
           <div id="quiz-stage" aria-live="polite"></div>
@@ -335,11 +876,32 @@ Y = A·S′ + B·S</code></pre>
       </div>
     </section>
 
-    <!-- ============ PROGRES ============ -->
-    <section class="section" id="progres">
+    <!-- ============ GLOSARIUM ============ -->
+    <section class="section" id="glosarium">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">05 — Progres</p>
+          <p class="eyebrow">05 — Glosarium</p>
+          <h2>Istilah yang sering muncul</h2>
+          <p class="section-sub">Ketik untuk menyaring istilah saat membaca materi atau mengerjakan tugas.</p>
+        </div>
+
+        <div class="glos-card">
+          <label class="glos-search">
+            <span>Cari istilah</span>
+            <input id="glos-filter" type="search" placeholder="misal: carry, basis, MUX" autocomplete="off" />
+          </label>
+          <p class="glos-count" id="glos-count" aria-live="polite"></p>
+          <dl class="glos-list" id="glos-list"></dl>
+          <p class="glos-empty" id="glos-empty" hidden>Tidak ada istilah yang cocok. Coba kata lain.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROGRES ============ -->
+    <section class="section section-alt" id="progres">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">06 — Progres</p>
           <h2>Sejauh mana kamu?</h2>
           <p class="section-sub">Data ini disimpan di browser kamu sendiri (localStorage), tidak dikirim ke server mana pun.</p>
         </div>
@@ -355,6 +917,14 @@ Y = A·S′ + B·S</code></pre>
 
           <div class="progress-item">
             <div class="progress-row">
+              <span>Latihan topik benar</span>
+              <strong id="progress-latihan-label">0 / 5</strong>
+            </div>
+            <div class="bar"><span class="bar-fill" id="progress-latihan-bar"></span></div>
+          </div>
+
+          <div class="progress-item">
+            <div class="progress-row">
               <span>Skor kuis terbaik</span>
               <strong id="progress-skor-label">Belum dikerjakan</strong>
             </div>
@@ -366,14 +936,93 @@ Y = A·S′ + B·S</code></pre>
       </div>
     </section>
 
+    <!-- ============ TENTANG PROYEK ============ -->
+    <section class="section" id="tentang">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">07 — Tentang proyek</p>
+          <h2>Kaitan dengan Interaksi Manusia &amp; Komputer</h2>
+          <p class="section-sub">
+            Setiap keputusan desain di halaman ini punya alasan dari sisi IMK. Bagian ini
+            bisa kamu pakai saat mempresentasikan atau menulis laporan.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="mini-table mini-table-about">
+            <caption>Tabel 7.1 — Heuristik Nielsen dan penerapannya di situs ini</caption>
+            <thead><tr><th>Prinsip</th><th>Wujudnya di halaman ini</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Visibilitas status sistem</td>
+                <td>Bar progres materi, penghitung soal, lampu output yang menyala, baris tabel kebenaran yang ditandai, dan bilah baca di atas.</td>
+              </tr>
+              <tr>
+                <td>Kesesuaian dengan dunia nyata</td>
+                <td>Analogi saklar seri/paralel, contoh alarm dan pintu akses, istilah Indonesia dengan padanan aslinya.</td>
+              </tr>
+              <tr>
+                <td>Kendali pengguna</td>
+                <td>Materi bisa dibuka-tutup, latihan bisa diulang, tombol reset progres, kuis bisa diulang kapan saja.</td>
+              </tr>
+              <tr>
+                <td>Konsistensi dan standar</td>
+                <td>Satu gaya tombol, satu sistem warna, penanda topik bernomor 01–05 di seluruh halaman.</td>
+              </tr>
+              <tr>
+                <td>Pencegahan kesalahan</td>
+                <td>Input konverter divalidasi per basis dengan pesan yang menjelaskan, opsi kuis terkunci setelah dijawab.</td>
+              </tr>
+              <tr>
+                <td>Mengenali daripada mengingat</td>
+                <td>Tabel kebenaran selalu tampil di samping simulator; glosarium bisa dicari; rumus ditampilkan bersama hasilnya.</td>
+              </tr>
+              <tr>
+                <td>Umpan balik</td>
+                <td>Jawaban kuis langsung diberi warna benar/salah plus penjelasan; latihan topik memberi koreksi instan.</td>
+              </tr>
+              <tr>
+                <td>Membantu mengenali dan memperbaiki kesalahan</td>
+                <td>Pesan konverter menyebutkan nilai yang salah dan cara memperbaikinya, bukan sekadar "input tidak valid".</td>
+              </tr>
+              <tr>
+                <td>Dukungan dokumentasi</td>
+                <td>Setiap topik punya tujuan pembelajaran, contoh berhitung, dan daftar kesalahan umum.</td>
+              </tr>
+              <tr>
+                <td>Aksesibilitas</td>
+                <td>Navigasi keyboard, atribut ARIA pada saklar dan tabel, kontras teks tinggi, dukungan <code>prefers-reduced-motion</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="about-note">
+          <h3>Batasan yang perlu disebut jujur</h3>
+          <p>
+            Progres dan skor disimpan di <code>localStorage</code>, artinya terikat pada
+            satu browser di satu perangkat — membuka situs di HP tidak melanjutkan progres
+            dari laptop. Tidak ada akun, tidak ada data yang dikirim ke server, dan tidak
+            ada rekap nilai untuk dosen. Ini keputusan sadar agar situs bisa berjalan tanpa
+            server dan tanpa biaya.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <span class="brand-text">Sistem Digital Interaktif</span>
       <p>
-        Proyek media pembelajaran — mata kuliah Interaksi Manusia &amp; Komputer.
-        Materi Dasar Sistem Digital. Silakan ubah teks, warna, dan soalnya sesuai kebutuhan.
+        Proyek media pembelajaran — mata kuliah Interaksi Manusia &amp; Komputer,
+        materi Dasar Sistem Digital.
+      </p>
+      <p class="footer-ref">
+        Rujukan: M. Morris Mano, <em>Digital Design</em>; Thomas L. Floyd,
+        <em>Digital Fundamentals</em>; Jakob Nielsen, <em>10 Usability Heuristics for
+        User Interface Design</em>.
       </p>
     </div>
   </footer>
