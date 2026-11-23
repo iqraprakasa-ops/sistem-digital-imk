@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Konverter Bilangan — Dasar Sistem Digital</title>
+  <meta name="description" content="Konverter dua arah desimal, biner, oktal, dan heksadesimal beserta jumlah bit hasil konversi." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="konverter.html">
+
+  <div class="baca-bar" aria-hidden="true"><span id="baca-fill"></span></div>
+
+  <!-- ============ HEADER / NAVIGASI ============ -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">01</span>
+        <span class="brand-text">Sistem Digital</span>
+      </a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="materi.html">Materi</a>
+        <a href="simulator.html">Simulator</a>
+        <a href="konverter.html" aria-current="page">Konverter</a>
+        <a href="kuis.html">Kuis</a>
+        <a href="glosarium.html">Glosarium</a>
+        <a href="progres.html">Progres</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="atas">
+
+<section class="section" id="konverter">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">03 — Konverter</p>
+          <h2>Konverter bilangan dua arah</h2>
+          <p class="section-sub">
+            Pilih basis asal, ketik bilangannya, dan hasil dalam ketiga basis lain muncul
+            seketika — lengkap dengan jumlah bit yang dipakai.
+          </p>
+        </div>
+
+        <div class="conv-card">
+          <div class="conv-input">
+            <p class="sim-label" id="label-basis">Basis asal</p>
+            <div class="gate-chips" id="mode-chips" role="group" aria-labelledby="label-basis">
+              <button class="gate-chip" type="button" data-mode="desimal" aria-pressed="true">Desimal</button>
+              <button class="gate-chip" type="button" data-mode="biner">Biner</button>
+              <button class="gate-chip" type="button" data-mode="oktal">Oktal</button>
+              <button class="gate-chip" type="button" data-mode="heks">Heksadesimal</button>
+            </div>
+
+            <label for="angka" id="conv-label">Bilangan desimal</label>
+            <input
+              id="angka"
+              type="text"
+              value="13"
+              inputmode="numeric"
+              autocomplete="off"
+              spellcheck="false"
+              aria-describedby="conv-hint"
+            />
+            <p class="conv-hint" id="conv-hint">Rentang 0–65535 (setara 16 bit).</p>
+          </div>
+
+          <div class="conv-out" id="conv-out" aria-live="polite">
+            <div class="out-row">
+              <span class="out-label">Desimal</span>
+              <code class="out-value" id="out-desimal">13</code>
+            </div>
+            <div class="out-row">
+              <span class="out-label">Biner</span>
+              <code class="out-value" id="out-biner">1101</code>
+            </div>
+            <div class="out-row">
+              <span class="out-label">Oktal</span>
+              <code class="out-value" id="out-oktal">15</code>
+            </div>
+            <div class="out-row">
+              <span class="out-label">Heksadesimal</span>
+              <code class="out-value" id="out-heks">D</code>
+            </div>
+            <div class="out-row">
+              <span class="out-label">Jumlah bit</span>
+              <code class="out-value" id="out-bit">4</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="brand-text">Sistem Digital Interaktif</span>
+      <p>
+        Proyek media pembelajaran — mata kuliah Interaksi Manusia &amp; Komputer,
+        materi Dasar Sistem Digital.
+      </p>
+      <p class="footer-ref">
+        Rujukan: M. Morris Mano, <em>Digital Design</em>; Thomas L. Floyd,
+        <em>Digital Fundamentals</em>; Jakob Nielsen, <em>10 Usability Heuristics for
+        User Interface Design</em>.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

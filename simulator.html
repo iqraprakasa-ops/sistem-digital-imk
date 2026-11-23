@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulator Gerbang & Full Adder — Dasar Sistem Digital</title>
+  <meta name="description" content="Simulator interaktif tujuh gerbang logika dan full adder dengan tabel kebenaran yang menandai baris aktif." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="simulator.html">
+
+  <div class="baca-bar" aria-hidden="true"><span id="baca-fill"></span></div>
+
+  <!-- ============ HEADER / NAVIGASI ============ -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">01</span>
+        <span class="brand-text">Sistem Digital</span>
+      </a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="materi.html">Materi</a>
+        <a href="simulator.html" aria-current="page">Simulator</a>
+        <a href="konverter.html">Konverter</a>
+        <a href="kuis.html">Kuis</a>
+        <a href="glosarium.html">Glosarium</a>
+        <a href="progres.html">Progres</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="atas">
+
+<section class="section section-dark" id="simulator">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">02 — Simulator</p>
+          <h2>Simulator gerbang logika</h2>
+          <p class="section-sub">Pilih gerbang, ubah input A dan B, lalu lihat output serta baris tabel kebenaran yang aktif.</p>
+        </div>
+
+        <div class="sim-card">
+          <div class="sim-controls">
+            <p class="sim-label" id="label-gerbang">Pilih gerbang</p>
+            <div class="gate-chips" id="gate-chips" role="group" aria-labelledby="label-gerbang">
+              <button class="gate-chip" type="button" data-gate="AND">AND</button>
+              <button class="gate-chip" type="button" data-gate="OR">OR</button>
+              <button class="gate-chip" type="button" data-gate="NOT">NOT</button>
+              <button class="gate-chip" type="button" data-gate="NAND">NAND</button>
+              <button class="gate-chip" type="button" data-gate="NOR">NOR</button>
+              <button class="gate-chip" type="button" data-gate="XOR">XOR</button>
+              <button class="gate-chip" type="button" data-gate="XNOR">XNOR</button>
+            </div>
+
+            <p class="sim-label">Input</p>
+            <div class="switches">
+              <label class="switch">
+                <input class="switch-input" type="checkbox" id="input-a" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">A</span>
+                <span class="switch-val" id="val-a">0</span>
+              </label>
+              <label class="switch" id="switch-b-wrap">
+                <input class="switch-input" type="checkbox" id="input-b" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">B</span>
+                <span class="switch-val" id="val-b">0</span>
+              </label>
+            </div>
+
+            <p class="sim-note" id="sim-note">Output 1 hanya jika A dan B sama-sama 1.</p>
+          </div>
+
+          <div class="sim-output">
+            <div class="lamp" id="lamp" aria-hidden="true"><span id="lamp-val">0</span></div>
+            <p class="lamp-caption">Output Y</p>
+            <p class="sim-formula" id="sim-formula">Y = A · B</p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="truth-table" id="truth-table"></table>
+          </div>
+        </div>
+
+        <div class="section-head sim-head-2">
+          <h3>Simulator full adder</h3>
+          <p class="section-sub">
+            Tiga saklar: A, B, dan carry masuk. Lihat Sum, carry keluar, serta langkah
+            perhitungannya. Coba bandingkan dengan Tabel 5.2 di materi.
+          </p>
+        </div>
+
+        <div class="sim-card adder-card">
+          <div class="sim-controls">
+            <p class="sim-label">Input</p>
+            <div class="switches}>
+              <label class="switch">
+                <input class="switch-input" type="checkbox" id="add-a" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">A</span>
+                <span class="switch-val" id="add-val-a">0</span>
+              </label>
+              <label class="switch">
+                <input class="switch-input" type="checkbox" id="add-b" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">B</span>
+                <span class="switch-val" id="add-val-b">0</span>
+              </label>
+              <label class="switch">
+                <input class="switch-input" type="checkbox" id="add-cin" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">C<sub>in</sub></span>
+                <span class="switch-val" id="add-val-cin">0</span>
+              </label>
+            </div>
+            <p class="sim-note" id="adder-note">Jumlah ketiga input: 0 + 0 + 0 = 0.</p>
+            <div class="adder-steps" id="adder-steps"></div>
+          </div>
+
+          <div class="adder-output">
+            <div class="lamp-pair">
+              <div>
+                <div class="lamp lamp-sm" id="lamp-sum" aria-hidden="true"><span id="lamp-sum-val">0</span></div>
+                <p class="lamp-caption">Sum</p>
+              </div>
+              <div>
+                <div class="lamp lamp-sm" id="lamp-cout" aria-hidden="true"><span id="lamp-cout-val">0</span></div>
+                <p class="lamp-caption">C<sub>out</sub></p>
+              </div>
+            </div>
+            <p class="sim-formula" id="adder-formula">Sum = 0 ⊕ 0 ⊕ 0 = 0</p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="truth-table" id="adder-table"></table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="brand-text">Sistem Digital Interaktif</span>
+      <p>
+        Proyek media pembelajaran — mata kuliah Interaksi Manusia &amp; Komputer,
+        materi Dasar Sistem Digital.
+      </p>
+      <p class="footer-ref">
+        Rujukan: M. Morris Mano, <em>Digital Design</em>; Thomas L. Floyd,
+        <em>Digital Fundamentals</em>; Jakob Nielsen, <em>10 Usability Heuristics for
+        User Interface Design</em>.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -242,7 +242,9 @@ let latihanBenar = bacaPenyimpanan(KUNCI_LATIHAN, []);
 let skorTerbaik = bacaPenyimpanan(KUNCI_SKOR, null);
 
 const semuaMateri = Array.from(document.querySelectorAll(".lesson"));
-const TOTAL_MATERI = semuaMateri.length;
+// Jumlah topik materi tetap 5. Kartunya hanya ada di materi.html, jadi tidak
+// boleh dihitung dari DOM — halaman Progres perlu angka yang sama.
+const TOTAL_MATERI = 5;
 const TOTAL_LATIHAN = Object.keys(LATIHAN).length;
 
 /* ---------------- 3. MATERI ---------------- */
@@ -251,6 +253,9 @@ semuaMateri.forEach(function (kartu) {
   const tombolBuka = kartu.querySelector(".lesson-toggle");
   const isi = kartu.querySelector(".lesson-body");
   const tombolSelesai = kartu.querySelector(".done-btn");
+
+  // Halaman lain tidak punya kartu materi: lewati saja.
+  if (!tombolBuka || !isi || !tombolSelesai) return;
 
   tombolBuka.addEventListener("click", function () {
     const terbuka = tombolBuka.getAttribute("aria-expanded") === "true";
@@ -279,6 +284,7 @@ function gambarStatusMateri() {
   semuaMateri.forEach(function (kartu) {
     const selesai = materiSelesai.includes(kartu.dataset.lesson);
     const tombol = kartu.querySelector(".done-btn");
+    if (!tombol) return;
     kartu.classList.toggle("is-done", selesai);
     tombol.setAttribute("aria-pressed", String(selesai));
     tombol.textContent = selesai ? "✓ Sudah selesai" : "Tandai selesai";
@@ -378,17 +384,20 @@ chips.forEach(function (chip) {
   });
 });
 
-inputA.addEventListener("change", function () {
-  nilaiA = inputA.checked ? 1 : 0;
-  gambarSimulator();
-});
+if (inputA && inputB) {
+  inputA.addEventListener("change", function () {
+    nilaiA = inputA.checked ? 1 : 0;
+    gambarSimulator();
+  });
 
-inputB.addEventListener("change", function () {
-  nilaiB = inputB.checked ? 1 : 0;
-  gambarSimulator();
-});
+  inputB.addEventListener("change", function () {
+    nilaiB = inputB.checked ? 1 : 0;
+    gambarSimulator();
+  });
+}
 
 function gambarSimulator() {
+  if (!tabel || !switchB) return; // halaman ini tidak punya simulator
   const g = GERBANG[gerbangAktif];
   const jumlahInput = g.input;
 
@@ -457,15 +466,18 @@ const addNote = document.getElementById("adder-note");
 const addSteps = document.getElementById("adder-steps");
 const addTable = document.getElementById("adder-table");
 
-Object.keys(addInputs).forEach(function (kunci) {
-  addInputs[kunci].addEventListener("change", gambarAdder);
-});
+if (addInputs.a && addInputs.b && addInputs.cin) {
+  Object.keys(addInputs).forEach(function (kunci) {
+    addInputs[kunci].addEventListener("change", gambarAdder);
+  });
+}
 
 function xor(a, b) {
   return a !== b ? 1 : 0;
 }
 
 function gambarAdder() {
+  if (!addTable) return; // halaman ini tidak punya full adder
   const a = addInputs.a.checked ? 1 : 0;
   const b = addInputs.b.checked ? 1 : 0;
   const cin = addInputs.cin.checked ? 1 : 0;
@@ -576,6 +588,7 @@ function kosongkanHasil() {
 }
 
 function gambarKonversi() {
+  if (!inputAngka || !outDesimal) return; // halaman ini tidak punya konverter
   const info = BASIS[modeBasis];
   const mentah = inputAngka.value.trim().replace(/\s+/g, "");
 
@@ -613,7 +626,7 @@ function gambarKonversi() {
   outBit.textContent = binerAsli.length + " bit";
 }
 
-inputAngka.addEventListener("input", gambarKonversi);
+if (inputAngka) inputAngka.addEventListener("input", gambarKonversi);
 
 /* ---------------- 8. KUIS ---------------- */
 const stage = document.getElementById("quiz-stage");
@@ -769,6 +782,7 @@ const glosCount = document.getElementById("glos-count");
 const glosEmpty = document.getElementById("glos-empty");
 
 function gambarGlosarium() {
+  if (!glosList || !glosFilter) return; // halaman ini tidak punya glosarium
   const kunci = glosFilter.value.trim().toLowerCase();
   const cocok = GLOSARIUM.filter(function (item) {
     return (
@@ -791,22 +805,28 @@ function gambarGlosarium() {
   glosEmpty.hidden = cocok.length !== 0;
 }
 
-glosFilter.addEventListener("input", gambarGlosarium);
+if (glosFilter) glosFilter.addEventListener("input", gambarGlosarium);
 
 /* ---------------- 10. PROGRES, BILAH BACA, INISIALISASI ---------------- */
 function gambarProgres() {
+  // Bar progres hanya ada di halaman Progres; halaman lain cukup melewatinya.
   const labelMateri = document.getElementById("progress-materi-label");
   const barMateri = document.getElementById("progress-materi-bar");
-  labelMateri.textContent = materiSelesai.length + " / " + TOTAL_MATERI;
-  barMateri.style.width = ((materiSelesai.length / TOTAL_MATERI) * 100).toFixed(1) + "%";
+  if (labelMateri && barMateri) {
+    labelMateri.textContent = materiSelesai.length + " / " + TOTAL_MATERI;
+    barMateri.style.width = ((materiSelesai.length / TOTAL_MATERI) * 100).toFixed(1) + "%";
+  }
 
   const labelLatihan = document.getElementById("progress-latihan-label");
   const barLatihan = document.getElementById("progress-latihan-bar");
-  labelLatihan.textContent = latihanBenar.length + " / " + TOTAL_LATIHAN;
-  barLatihan.style.width = ((latihanBenar.length / TOTAL_LATIHAN) * 100).toFixed(1) + "%";
+  if (labelLatihan && barLatihan) {
+    labelLatihan.textContent = latihanBenar.length + " / " + TOTAL_LATIHAN;
+    barLatihan.style.width = ((latihanBenar.length / TOTAL_LATIHAN) * 100).toFixed(1) + "%";
+  }
 
   const labelSkor = document.getElementById("progress-skor-label");
   const barSkor = document.getElementById("progress-skor-bar");
+  if (!labelSkor || !barSkor) return;
   if (skorTerbaik === null) {
     labelSkor.textContent = "Belum dikerjakan";
     barSkor.style.width = "0%";
@@ -816,7 +836,8 @@ function gambarProgres() {
   }
 }
 
-document.getElementById("reset-progress").addEventListener("click", function () {
+const tombolReset = document.getElementById("reset-progress");
+if (tombolReset) tombolReset.addEventListener("click", function () {
   materiSelesai = [];
   latihanBenar = [];
   skorTerbaik = null;
@@ -837,6 +858,7 @@ document.getElementById("reset-progress").addEventListener("click", function () 
 const bacaFill = document.getElementById("baca-fill");
 
 function gambarBilahBaca() {
+  if (!bacaFill) return;
   const tinggi = document.documentElement.scrollHeight - window.innerHeight;
   const posisi = window.scrollY || document.documentElement.scrollTop;
   const persen = tinggi > 0 ? Math.min(100, (posisi / tinggi) * 100) : 0;
@@ -845,11 +867,12 @@ function gambarBilahBaca() {
 
 window.addEventListener("scroll", gambarBilahBaca, { passive: true });
 
+/* Hanya jalankan alat yang memang ada di halaman yang sedang dibuka. */
 gambarStatusMateri();
 gambarProgres();
-gambarSimulator();
-gambarAdder();
-gambarKonversi();
-mulaiKuis();
-gambarGlosarium();
+if (tabel) gambarSimulator();
+if (addTable) gambarAdder();
+if (inputAngka) gambarKonversi();
+if (stage) mulaiKuis();
+if (glosList) gambarGlosarium();
 gambarBilahBaca();

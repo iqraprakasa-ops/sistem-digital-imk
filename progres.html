@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progres Belajar — Dasar Sistem Digital</title>
+  <meta name="description" content="Ringkasan progres belajar: materi selesai, latihan benar, dan skor kuis terbaik yang tersimpan di browser." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="progres.html">
+
+  <div class="baca-bar" aria-hidden="true"><span id="baca-fill"></span></div>
+
+  <!-- ============ HEADER / NAVIGASI ============ -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">01</span>
+        <span class="brand-text">Sistem Digital</span>
+      </a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="materi.html">Materi</a>
+        <a href="simulator.html">Simulator</a>
+        <a href="konverter.html">Konverter</a>
+        <a href="kuis.html">Kuis</a>
+        <a href="glosarium.html">Glosarium</a>
+        <a href="progres.html" aria-current="page">Progres</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="atas">
+
+<section class="section section-alt" id="progres">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">06 — Progres</p>
+          <h2>Sejauh mana kamu?</h2>
+          <p class="section-sub">Data ini disimpan di browser kamu sendiri (localStorage), tidak dikirim ke server mana pun.</p>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-item">
+            <div class="progress-row">
+              <span>Materi selesai</span>
+              <strong id="progress-materi-label">0 / 5</strong>
+            </div>
+            <div class="bar"><span class="bar-fill" id="progress-materi-bar"></span></div>
+          </div>
+
+          <div class="progress-item">
+            <div class="progress-row">
+              <span>Latihan topik benar</span>
+              <strong id="progress-latihan-label">0 / 5</strong>
+            </div>
+            <div class="bar"><span class="bar-fill" id="progress-latihan-bar"></span></div>
+          </div>
+
+          <div class="progress-item">
+            <div class="progress-row">
+              <span>Skor kuis terbaik</span>
+              <strong id="progress-skor-label">Belum dikerjakan</strong>
+            </div>
+            <div class="bar"><span class="bar-fill" id="progress-skor-bar"></span></div>
+          </div>
+
+          <button class="link-btn" type="button" id="reset-progress">Reset semua progres</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="brand-text">Sistem Digital Interaktif</span>
+      <p>
+        Proyek media pembelajaran — mata kuliah Interaksi Manusia &amp; Komputer,
+        materi Dasar Sistem Digital.
+      </p>
+      <p class="footer-ref">
+        Rujukan: M. Morris Mano, <em>Digital Design</em>; Thomas L. Floyd,
+        <em>Digital Fundamentals</em>; Jakob Nielsen, <em>10 Usability Heuristics for
+        User Interface Design</em>.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
