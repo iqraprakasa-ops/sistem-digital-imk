@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Digital Interaktif — Belajar Sambil Mencoba</title>
+  <meta name="description" content="Media pembelajaran interaktif Dasar Sistem Digital: materi ringkas, simulator gerbang logika, konverter bilangan, dan kuis dengan koreksi langsung." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGASI ============ -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#atas">
+        <span class="brand-mark">01</span>
+        <span class="brand-text">Sistem Digital</span>
+      </a>
+      <nav class="nav" aria-label="Navigasi utama">
+        <a href="#materi">Materi</a>
+        <a href="#simulator">Simulator</a>
+        <a href="#konverter">Konverter</a>
+        <a href="#kuis">Kuis</a>
+        <a href="#progres">Progres</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="atas">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Interaksi Manusia &amp; Komputer · Media pembelajaran</p>
+          <h1>Pahami sistem digital dengan <em>mencoba</em>, bukan menghafal.</h1>
+          <p class="lead">
+            Materi ringkas, simulator gerbang logika yang bisa kamu klik, konverter
+            bilangan yang menghitung seketika, dan kuis berkoreksi otomatis.
+            Semua berjalan di browser, tanpa install.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#materi">Mulai dari materi</a>
+            <a class="btn btn-ghost" href="#simulator">Coba simulator</a>
+          </div>
+          <ul class="hero-facts">
+            <li><strong>5</strong> topik materi</li>
+            <li><strong>3</strong> alat interaktif</li>
+            <li><strong>7</strong> soal kuis</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="code-card">
+            <div class="code-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="code-file">gerbang-and.txt</span>
+            </div>
+            <pre class="code"><code> A  B  │  Y = A · B
+────────┼───────────
+ 0  0  │  0
+ 0  1  │  0
+ 1  0  │  0
+ 1  1  │  1</code></pre>
+          </div>
+          <div class="float-badge">
+            <span class="check">✓</span> Umpan balik langsung
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MATERI ============ -->
+    <section class="section" id="materi">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">01 — Materi</p>
+          <h2>Lima topik dasar sistem digital</h2>
+          <p class="section-sub">Buka satu per satu, lalu tandai selesai. Progresnya tersimpan otomatis di browser kamu.</p>
+        </div>
+
+        <div class="lesson-grid">
+
+          <article class="lesson" data-lesson="bilangan">
+            <div class="lesson-head">
+              <span class="lesson-num">01</span>
+              <h3>Sistem bilangan</h3>
+              <p>Desimal, biner, oktal, dan heksadesimal — plus cara berpindah di antaranya.</p>
+            </div>
+            <button class="lesson-toggle" type="button" aria-expanded="false" aria-controls="materi-bilangan">
+              <span class="lesson-toggle-label">Buka materi</span>
+              <span class="chev" aria-hidden="true">↓</span>
+            </button>
+            <div class="lesson-body" id="materi-bilangan" hidden>
+              <ul class="lesson-list">
+                <li><strong>Desimal</strong> (basis 10) memakai angka 0–9, ini yang kita pakai sehari-hari.</li>
+                <li><strong>Biner</strong> (basis 2) hanya 0 dan 1. Satu digit biner disebut <em>bit</em>; 8 bit = 1 byte.</li>
+                <li><strong>Oktal</strong> (basis 8) memakai 0–7, sering muncul di potongan izin file Linux.</li>
+                <li><strong>Heksadesimal</strong> (basis 16) memakai 0–9 lalu A–F. Satu digit heks = 4 bit.</li>
+                <li>Desimal → biner: bagi 2 terus-menerus, sisa pembagian dibaca dari bawah ke atas.</li>
+              </ul>
+              <pre class="code code-inline"><code>13 ÷ 2 = 6 sisa 1   ▲
+ 6 ÷ 2 = 3 sisa 0   │ dibaca
+ 3 ÷ 2 = 1 sisa 1   │ dari bawah
+ 1 ÷ 2 = 0 sisa 1   │
+                     
+13₁₀ = 1101₂ = 15₈ = D₁₆</code></pre>
+              <button class="done-btn" type="button" data-lesson="bilangan" aria-pressed="false">Tandai selesai</button>
+            </div>
+          </article>
+
+          <article class="lesson" data-lesson="gerbang">
+            <div class="lesson-head">
+              <span class="lesson-num">02</span>
+              <h3>Gerbang logika dasar</h3>
+              <p>AND, OR, dan NOT: tiga batu bata penyusun semua rangkaian digital.</p>
+            </div>
+            <button class="lesson-toggle" type="button" aria-expanded="false" aria-controls="materi-gerbang">
+              <span class="lesson-toggle-label">Buka materi</span>
+              <span class="chev" aria-hidden="true">↓</span>
+            </button>
+            <div class="lesson-body" id="materi-gerbang" hidden>
+              <ul class="lesson-list">
+                <li><strong>AND</strong> (Y = A · B): output 1 hanya jika <em>semua</em> input 1. Seperti dua saklar seri.</li>
+                <li><strong>OR</strong> (Y = A + B): output 1 jika <em>salah satu</em> input 1. Seperti dua saklar paralel.</li>
+                <li><strong>NOT</strong> (Y = Ā): membalik nilai, 0 jadi 1 dan 1 jadi 0.</li>
+                <li>Rangkaian digital bekerja dengan dua kondisi tegangan: 0 (rendah) dan 1 (tinggi).</li>
+              </ul>
+              <pre class="code code-inline"><code>AND            OR             NOT
+A B │ Y        A B │ Y        A │ Y
+0 0 │ 0        0 0 │ 0        0 │ 1
+0 1 │ 0        0 1 │ 1        1 │ 0
+1 0 │ 0        1 0 │ 1
+1 1 │ 1        1 1 │ 1</code></pre>
+              <button class="done-btn" type="button" data-lesson="gerbang" aria-pressed="false">Tandai selesai</button>
+            </div>
+          </article>
+
+          <article class="lesson" data-lesson="turunan">
+            <div class="lesson-head">
+              <span class="lesson-num">03</span>
+              <h3>Gerbang turunan</h3>
+              <p>NAND, NOR, XOR, XNOR — kuncinya ada di tabel kebenaran.</p>
+            </div>
+            <button class="lesson-toggle" type="button" aria-expanded="false" aria-controls="materi-turunan">
+              <span class="lesson-toggle-label">Buka materi</span>
+              <span class="chev" aria-hidden="true">↓</span>
+            </button>
+            <div class="lesson-body" id="materi-turunan" hidden>
+              <ul class="lesson-list">
+                <li><strong>NAND</strong> (Y = (A · B)′): kebalikan AND. Disebut <em>gerbang universal</em> karena semua gerbang lain bisa dibentuk dari NAND saja.</li>
+                <li><strong>NOR</strong> (Y = (A + B)′): kebalikan OR, juga universal.</li>
+                <li><strong>XOR</strong> (Y = A ⊕ B): output 1 jika kedua input <em>berbeda</em>.</li>
+                <li><strong>XNOR</strong>: kebalikan XOR, output 1 jika kedua input <em>sama</em>.</li>
+                <li>XOR sering dipakai pada penjumlah biner (adder) dan deteksi parity.</li>
+              </ul>
+              <p class="lesson-tip">Coba sendiri di <a href="#simulator">Simulator Gerbang Logika</a> di bawah.</p>
+              <button class="done-btn" type="button" data-lesson="turunan" aria-pressed="false">Tandai selesai</button>
+            </div>
+          </article>
+
+          <article class="lesson" data-lesson="boolean">
+            <div class="lesson-head">
+              <span class="lesson-num">04</span>
+              <h3>Aljabar Boolean &amp; De Morgan</h3>
+              <p>Menyederhanakan rangkaian sebelum menggambar diagramnya.</p>
+            </div>
+            <button class="lesson-toggle" type="button" aria-expanded="false" aria-controls="materi-boolean">
+              <span class="lesson-toggle-label">Buka materi</span>
+              <span class="chev" aria-hidden="true">↓</span>
+            </button>
+            <div class="lesson-body" id="materi-boolean" hidden>
+              <ul class="lesson-list">
+                <li>Hukum dasar: A + 0 = A, A · 1 = A, A + A = A, A · A = A.</li>
+                <li>Komplemen: A + A′ = 1 dan A · A′ = 0.</li>
+                <li><strong>De Morgan:</strong> (A · B)′ = A′ + B′ dan (A + B)′ = A′ · B′.</li>
+                <li>Tujuannya: rangkaian lebih sedikit gerbang = lebih murah, cepat, dan hemat daya.</li>
+              </ul>
+              <pre class="code code-inline"><code>Y = A·B + A·B′
+  = A·(B + B′)   ← distributif
+  = A·1          ← B + B′ = 1
+  = A            ← selesai, 1 gerbang saja</code></pre>
+              <button class="done-btn" type="button" data-lesson="boolean" aria-pressed="false">Tandai selesai</button>
+            </div>
+          </article>
+
+          <article class="lesson" data-lesson="rangkaian">
+            <div class="lesson-head">
+              <span class="lesson-num">05</span>
+              <h3>Rangkaian kombinasional</h3>
+              <p>Half adder, full adder, dan multiplexer.</p>
+            </div>
+            <button class="lesson-toggle" type="button" aria-expanded="false" aria-controls="materi-rangkaian">
+              <span class="lesson-toggle-label">Buka materi</span>
+              <span class="chev" aria-hidden="true">↓</span>
+            </button>
+            <div class="lesson-body" id="materi-rangkaian" hidden>
+              <ul class="lesson-list">
+                <li><strong>Half adder</strong> menjumlah dua bit: Sum = A ⊕ B, Carry = A · B.</li>
+                <li><strong>Full adder</strong> menambah bit ketiga (carry-in), sehingga bisa dirangkai berlapis untuk bilangan banyak bit.</li>
+                <li><strong>Multiplexer (MUX) 2:1</strong> memilih satu dari dua input: Y = A · S′ + B · S.</li>
+                <li>Rangkaian <em>kombinasional</em> outputnya hanya bergantung input saat itu. Rangkaian <em>sekuensial</em> (flip-flop) menyimpan keadaan — lanjut di pertemuan berikutnya.</li>
+              </ul>
+              <pre class="code code-inline"><code>Half adder
+S = A ⊕ B   (XOR)
+C = A · B   (AND)
+
+MUX 2:1
+Y = A·S′ + B·S</code></pre>
+              <button class="done-btn" type="button" data-lesson="rangkaian" aria-pressed="false">Tandai selesai</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SIMULATOR GERBANG ============ -->
+    <section class="section section-dark" id="simulator">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">02 — Simulator</p>
+          <h2>Simulator gerbang logika</h2>
+          <p class="section-sub">Pilih gerbang, ubah input A dan B, lalu lihat output serta baris tabel kebenaran yang aktif.</p>
+        </div>
+
+        <div class="sim-card">
+          <div class="sim-controls">
+            <p class="sim-label" id="label-gerbang">Pilih gerbang</p>
+            <div class="gate-chips" id="gate-chips" role="group" aria-labelledby="label-gerbang">
+              <button class="gate-chip" type="button" data-gate="AND">AND</button>
+              <button class="gate-chip" type="button" data-gate="OR">OR</button>
+              <button class="gate-chip" type="button" data-gate="NOT">NOT</button>
+              <button class="gate-chip" type="button" data-gate="NAND">NAND</button>
+              <button class="gate-chip" type="button" data-gate="NOR">NOR</button>
+              <button class="gate-chip" type="button" data-gate="XOR">XOR</button>
+              <button class="gate-chip" type="button" data-gate="XNOR">XNOR</button>
+            </div>
+
+            <p class="sim-label">Input</p>
+            <div class="switches">
+              <label class="switch">
+                <input class="switch-input" type="checkbox" id="input-a" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">A</span>
+                <span class="switch-val" id="val-a">0</span>
+              </label>
+              <label class="switch" id="switch-b-wrap">
+                <input class="switch-input" type="checkbox" id="input-b" />
+                <span class="switch-track" aria-hidden="true"><span class="switch-thumb"></span></span>
+                <span class="switch-name">B</span>
+                <span class="switch-val" id="val-b">0</span>
+              </label>
+            </div>
+
+            <p class="sim-note" id="sim-note">Output 1 hanya jika A dan B sama-sama 1.</p>
+          </div>
+
+          <div class="sim-output">
+            <div class="lamp" id="lamp" aria-hidden="true"><span id="lamp-val">0</span></div>
+            <p class="lamp-caption">Output Y</p>
+            <p class="sim-formula" id="sim-formula">Y = A · B</p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="truth-table" id="truth-table"></table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KONVERTER ============ -->
+    <section class="section" id="konverter">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">03 — Konverter</p>
+          <h2>Konverter bilangan</h2>
+          <p class="section-sub">Ketik bilangan desimal, hasil biner, oktal, dan heksadesimalnya muncul seketika.</p>
+        </div>
+
+        <div class="conv-card">
+          <div class="conv-input">
+            <label for="desimal">Bilangan desimal</label>
+            <input
+              id="desimal"
+              type="number"
+              min="0"
+              max="65535"
+              value="13"
+              inputmode="numeric"
+              autocomplete="off"
+              aria-describedby="conv-hint"
+            />
+            <p class="conv-hint" id="conv-hint">Rentang 0–65535 (setara 16 bit).</p>
+          </div>
+
+          <div class="conv-out" id="conv-out" aria-live="polite">
+            <div class="out-row">
+              <span class="out-label">Biner</span>
+              <code class="out-value" id="out-biner">1101</code>
+            </div>
+            <div class="out-row">
+              <span class="out-label">Oktal</span>
+              <code class="out-value" id="out-oktal">15</code>
+            </div>
+            <div class="out-row">
+              <span class="out-label">Heksadesimal</span>
+              <code class="out-value" id="out-heks">D</code>
+            </div>
+            <div class="out-row">
+              <span class="out-label">Jumlah bit</span>
+              <code class="out-value" id="out-bit">4</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KUIS ============ -->
+    <section class="section section-alt" id="kuis">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">04 — Kuis</p>
+          <h2>Uji pemahamanmu</h2>
+          <p class="section-sub">Tujuh soal, koreksi langsung, plus penjelasan singkat di tiap jawaban.</p>
+        </div>
+
+        <div class="quiz-card">
+          <div class="quiz-top">
+            <span class="quiz-step" id="quiz-step">Soal 1 dari 7</span>
+            <div class="bar"><span class="bar-fill" id="quiz-bar"></span></div>
+          </div>
+          <div id="quiz-stage" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROGRES ============ -->
+    <section class="section" id="progres">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">05 — Progres</p>
+          <h2>Sejauh mana kamu?</h2>
+          <p class="section-sub">Data ini disimpan di browser kamu sendiri (localStorage), tidak dikirim ke server mana pun.</p>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-item">
+            <div class="progress-row">
+              <span>Materi selesai</span>
+              <strong id="progress-materi-label">0 / 5</strong>
+            </div>
+            <div class="bar"><span class="bar-fill" id="progress-materi-bar"></span></div>
+          </div>
+
+          <div class="progress-item">
+            <div class="progress-row">
+              <span>Skor kuis terbaik</span>
+              <strong id="progress-skor-label">Belum dikerjakan</strong>
+            </div>
+            <div class="bar"><span class="bar-fill" id="progress-skor-bar"></span></div>
+          </div>
+
+          <button class="link-btn" type="button" id="reset-progress">Reset semua progres</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="brand-text">Sistem Digital Interaktif</span>
+      <p>
+        Proyek media pembelajaran — mata kuliah Interaksi Manusia &amp; Komputer.
+        Materi Dasar Sistem Digital. Silakan ubah teks, warna, dan soalnya sesuai kebutuhan.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
